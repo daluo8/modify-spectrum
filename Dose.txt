@@ -1,0 +1,50 @@
+d:Ge/World/HLX       = 2.0 m
+d:Ge/World/HLY       = 2.0 m
+d:Ge/World/HLZ       = 2.0 m
+b:Ge/World/Invisible = "True"
+
+#Beam properties
+s:So/Example/BeamEnergySpectrumType	   = "Continuous"
+dv:So/Example/BeamEnergySpectrumValues   = 17 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 MeV
+uv:So/Example/BeamEnergySpectrumWeights = 17 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 
+#Beam source
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "proton"
+s:So/Example/BeamPositionDistribution = "None"
+s:So/Example/BeamPositionCutoffShape  = "Ellipse"
+s:So/Example/BeamAngularDistribution  = "None"
+d:So/Example/OnlyIncludeParticlesWithInitialKEBelow = 148 MeV
+d:So/Example/OnlyIncludeParticlesWithInitialKEAbove = 132 MeV
+
+i:So/Example/NumberOfHistoriesInRun   =  100000
+i:Ts/ShowHistoryCountAtInterval = 1000
+i:Ts/NumberOfThreads = 16
+b:Ts/ShowCPUTime = "True"
+#Air box
+#s:Ge/block/Type = "TsBox"
+#s:Ge/block/Parent = "World"
+#s:Ge/block/Material = "G4_AIR"
+#d:Ge/block/HLX = 10 cm
+#d:Ge/block/HLY = 10 cm
+#d:Ge/block/HLZ = 30 cm
+#d:Ge/block/TransZ = 30 cm
+#Scorer1
+s:Ge/Phantom0/Type = "TsBox"
+s:Ge/Phantom0/Parent = "World"
+s:Ge/Phantom0/Material = "G4_AIR"
+d:Ge/Phantom0/HLX = 10 cm
+d:Ge/Phantom0/HLY = 10 cm
+d:Ge/Phantom0/HLZ = 1.0 cm
+d:Ge/Phantom0/TransZ = -11 cm
+
+s:Sc/DoseAtPhantom0/Quantity                  = "PhaseSpace"
+s:Sc/DoseAtPhantom0/Component 		= "Phantom0"
+s:Sc/DoseAtPhantom0/OutputFile           	= "specBeforeAir"
+
+s:Sc/DoseAtPhantom0/Surface			= "Phantom0/ZPlusSurface"
+s:Sc/DoseAtPhantom0/OutputType		= "ASCII"
+s:Sc/DoseAtPhantom0/IfOutputFileAlreadyExists = "Increment"
+
+sv:Ph/Default/Modules = 6 "g4em-standard_opt4" "g4h-elastic_HP" "g4h-phy_QGSP_BIC_HP" "g4decay"  "g4stopping" "g4ion-binarycascade" 
+b:Ts/PauseBeforeQuit = "True"

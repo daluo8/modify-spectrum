@@ -1,0 +1,224 @@
+# Dipole magnet
+
+d:Ge/World/HLX       = 1.0 m
+d:Ge/World/HLY       = 1.0 m
+d:Ge/World/HLZ       = 1.0 m
+b:Ge/World/Invisible = "True"
+s:Ge/World/Material = "vacuum"
+
+s:Ge/Nozzle/Type   = "Group"
+s:Ge/Nozzle/Parent = "World"
+
+#Four dipole magnetic field
+s:Ge/Dipole0/Type          = "TsBox"
+s:Ge/Dipole0/Parent        = "Nozzle"
+s:Ge/Dipole0/Material      = "vacuum"
+d:Ge/Dipole0/HLX           = 10 cm
+d:Ge/Dipole0/HLY           = 15 cm
+d:Ge/Dipole0/HLZ           = 7.5 cm
+d:Ge/Dipole0/TransZ   	   = 85.5 cm
+s:Ge/Dipole0/Field = "DipoleMagnet"
+u:Ge/Dipole0/MagneticFieldDirectionX    = -1.0
+u:Ge/Dipole0/MagneticFieldDirectionY    = 0.0
+u:Ge/Dipole0/MagneticFieldDirectionZ    = 0.0
+d:Ge/Dipole0/MagneticFieldStrength      = 5.0 tesla
+
+s:Ge/Dipole1/Type          = "TsBox"
+s:Ge/Dipole1/Parent        = "Nozzle"
+s:Ge/Dipole1/Material      = "vacuum"
+d:Ge/Dipole1/HLX           = 10 cm
+d:Ge/Dipole1/HLY           = 15 cm
+d:Ge/Dipole1/HLZ           = 7.5 cm
+d:Ge/Dipole1/TransZ   	   = 65.5 cm
+s:Ge/Dipole1/Field = "DipoleMagnet"
+u:Ge/Dipole1/MagneticFieldDirectionX    = 1.0
+u:Ge/Dipole1/MagneticFieldDirectionY    = 0.0
+u:Ge/Dipole1/MagneticFieldDirectionZ    = 0.0
+d:Ge/Dipole1/MagneticFieldStrength      = 5.0 tesla
+
+s:Ge/Dipole2/Type          = "TsBox"
+s:Ge/Dipole2/Parent        = "Nozzle"
+s:Ge/Dipole2/Material      = "vacuum"
+d:Ge/Dipole2/HLX           = 10 cm
+d:Ge/Dipole2/HLY           = 15 cm
+d:Ge/Dipole2/HLZ           = 7.5 cm
+d:Ge/Dipole2/TransZ   	   = 38.5 cm
+s:Ge/Dipole2/Field = "DipoleMagnet"
+u:Ge/Dipole2/MagneticFieldDirectionX    = 1.0
+u:Ge/Dipole2/MagneticFieldDirectionY    = 0.0
+u:Ge/Dipole2/MagneticFieldDirectionZ    = 0.0
+d:Ge/Dipole2/MagneticFieldStrength      = 5.0 tesla
+
+s:Ge/Dipole3/Type          = "TsBox"
+s:Ge/Dipole3/Parent        = "Nozzle"
+s:Ge/Dipole3/Material      = "vacuum"
+d:Ge/Dipole3/HLX           = 10 cm
+d:Ge/Dipole3/HLY           = 15 cm
+d:Ge/Dipole3/HLZ           = 7.5 cm
+d:Ge/Dipole3/TransZ   	   = 18.5 cm
+s:Ge/Dipole3/Field = "DipoleMagnet"
+u:Ge/Dipole3/MagneticFieldDirectionX    = -1.0
+u:Ge/Dipole3/MagneticFieldDirectionY    = 0.0
+u:Ge/Dipole3/MagneticFieldDirectionZ    = 0.0
+d:Ge/Dipole3/MagneticFieldStrength      = 5.0 tesla
+
+d:Ge/BeamPosition/TransZ = Ge/World/HLZ cm
+d:Ge/BeamPosition/RotX   = 180. deg
+
+#Blocker1
+s:Ge/Blocker1/Type	= "Group"
+s:Ge/Blocker1/Parent	= "Nozzle"
+#s:Ge/Blocker1/Material	= "Lead"
+d:Ge/Blocker1/TransZ 	= 52 cm
+s:Ge/Blocker1/Message 	= "Constructing Blocker1"
+
+s:Ge/Blocker1/Blocker/Parent	= "Blocker1"
+s:Ge/Blocker1/Blocker/Type	= "TsBox"
+s:Ge/Blocker1/Blocker/Material = "Lead"
+d:Ge/Blocker1/Blocker/HLX	= 10 cm
+d:Ge/Blocker1/Blocker/HLY	= 15 cm
+d:Ge/Blocker1/Blocker/HLZ 	= 5 cm
+d:Ge/Blocker1/Blocker/TransX	= 0 cm
+d:Ge/Blocker1/Blocker/TransY	= 0 cm
+d:Ge/Blocker1/Blocker/TransZ	= 0 cm
+
+#Blocker Opening
+s:Ge/Blocker1/Opening/Parent	= "Blocker1/Blocker"
+s:Ge/Blocker1/Opening/Type	= "TsBox"
+s:Ge/Blocker1/Opening/Material = "vacuum"
+d:Ge/Blocker1/Opening/HLX	= 10 cm
+d:Ge/Blocker1/Opening/HLY	= 0.3 cm
+d:Ge/Blocker1/Opening/HLZ	= 5 cm
+d:Ge/Blocker1/Opening/TransZ	= 0 cm
+d:Ge/Blocker1/Opening/TransY	= 9 cm
+#Wedge
+s:Ge/Blocker1/Wedge/Type = "G4RTrap"
+s:Ge/Blocker1/Wedge/Parent = "Blocker1/Opening"
+s:Ge/Blocker1/Wedge/Material = "Lead"
+d:Ge/Blocker1/Wedge/TransX = 0 cm
+d:Ge/Blocker1/Wedge/TransY = 0.25 mm
+d:Ge/Blocker1/Wedge/TransZ = 0 cm
+d:Ge/Blocker1/Wedge/RotX = 180 deg
+d:Ge/Blocker1/Wedge/RotY = 270 deg
+d:Ge/Blocker1/Wedge/RotZ = 0 deg
+d:Ge/Blocker1/Wedge/LZ = 10 cm
+d:Ge/Blocker1/Wedge/LY = 0.55 cm
+d:Ge/Blocker1/Wedge/LX = 340 um
+d:Ge/Blocker1/Wedge/LTX = 100 um
+s:Ge/Blocker1/Wedge/Color = "pink"
+
+
+b:Ge/QuitIfOverlapDetected = "False"
+#Blocker2
+s:Ge/Blocker2/Type	= "Group"
+s:Ge/Blocker2/Parent	= "Nozzle"
+d:Ge/Blocker2/TransZ 	= 5 cm
+s:Ge/Blocker2/Message 	= "Constructing Blocker2"
+
+s:Ge/Blocker2/Blocker/Parent	= "Blocker2"
+s:Ge/Blocker2/Blocker/Type	= "TsBox"
+s:Ge/Blocker2/Blocker/Material = "Lead"
+d:Ge/Blocker2/Blocker/HLX	= 10 cm
+d:Ge/Blocker2/Blocker/HLY	= 10 cm
+d:Ge/Blocker2/Blocker/HLZ 	= 5 cm
+d:Ge/Blocker2/Blocker/TransX	= 0. cm
+d:Ge/Blocker2/Blocker/TransY	= 0. cm
+d:Ge/Blocker2/Blocker/TransZ	= 0. cm
+
+#Blocker Opening
+s:Ge/Blocker2/Opening/Parent	= "Blocker2/Blocker"
+s:Ge/Blocker2/Opening/Type	= "TsCylinder"
+s:Ge/Blocker2/Opening/Material = "G4_AIR"
+d:Ge/Blocker2/Opening/RMax	= 0.5 cm
+d:Ge/Blocker2/Opening/RMin	= 0 cm
+d:Ge/Blocker2/Opening/HL	= 5 cm
+d:Ge/Blocker2/Opening/TransZ	= 0. cm
+d:Ge/Blocker2/Opening/TransY	= 0. cm
+
+#Beam properties
+s:So/Example/BeamEnergySpectrumType	   = "Continuous"
+dv:So/Example/BeamEnergySpectrumValues   = 17 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 MeV
+uv:So/Example/BeamEnergySpectrumWeights = 17 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 .0588 
+#Beam source
+s:So/Example/Type                     = "Beam"
+s:So/Example/Component                = "BeamPosition"
+s:So/Example/BeamParticle             = "proton"
+s:So/Example/BeamPositionDistribution = "None"
+s:So/Example/BeamPositionCutoffShape  = "Ellipse"
+s:So/Example/BeamAngularDistribution  = "None"
+d:So/Example/OnlyIncludeParticlesWithInitialKEBelow = 148 MeV
+d:So/Example/OnlyIncludeParticlesWithInitialKEAbove = 132 MeV
+
+i:So/Example/NumberOfHistoriesInRun   =  100
+i:Ts/ShowHistoryCountAtInterval = 10
+i:Ts/NumberOfThreads = 16
+b:Ts/ShowCPUTime = "True"
+
+
+Scorer1
+s:Ge/Phantom1/Type = "TsBox"
+s:Ge/Phantom1/Parent = "Blocker1/Opening"
+s:Ge/Phantom1/Material = "vacuum"
+d:Ge/Phantom1/HLX = 10 cm
+d:Ge/Phantom1/HLY = 0.3 cm
+d:Ge/Phantom1/HLZ = 0.5 cm
+d:Ge/Phantom1/TransZ = -2 cm
+s:Ge/Phantom1/Color = "Yellow"
+
+#s:Sc/DoseAtPhantom1/Quantity                  = "PhaseSpace"
+#s:Sc/DoseAtPhantom1/Component 		= "Phantom1"
+#s:Sc/DoseAtPhantom1/OutputFile           	= "dector1"
+#s:Sc/DoseAtPhantom1/IfOutputFileAlreadyExists = "Increment"
+#s:Sc/DoseAtPhantom1/Surface			= "Phantom1/ZPlusSurface"
+#s:Sc/DoseAtPhantom1/OutputType		= "ASCII"
+#Air box
+s:Ge/block/Type = "TsBox"
+s:Ge/block/Parent = "World"
+s:Ge/block/Material = "G4_AIR"
+d:Ge/block/HLX = 10 cm
+d:Ge/block/HLY = 10 cm
+d:Ge/block/HLZ = 10 cm
+d:Ge/block/TransZ = -15 cm
+
+#Scorer2
+s:Ge/Phantom2/Type = "TsBox"
+s:Ge/Phantom2/Parent = "Nozzle"
+s:Ge/Phantom2/Material = "G4_WATER"
+d:Ge/Phantom2/HLX = 10 cm
+d:Ge/Phantom2/HLY = 10 cm
+d:Ge/Phantom2/HLZ = 8 cm
+d:Ge/Phantom2/TransZ = -33 cm
+i:Ge/Phantom2/ZBins	= 160
+s:Ge/Phantom2/Color = "Blue"
+
+#s:Sc/DoseAtPhantom2/Quantity                  = "PhaseSpace"
+#s:Sc/DoseAtPhantom2/Component 		= "Phantom2"
+#s:Sc/DoseAtPhantom2/OutputFile           	= "dector2"
+#s:Sc/DoseAtPhantom2/Surface			= "Phantom2/ZPlusSurface"
+#s:Sc/DoseAtPhantom2/IfOutputFileAlreadyExists = "Increment"
+#s:Sc/DoseAtPhantom2/OutputType		= "ASCII"
+#s:Sc/DoseAtPhantom2/OnlyIncludeParticlesOfGeneration = "Primary"
+#sv:Sc/DoseAtPhantom2/OnlyIncludeParticlesNamed = 1 "proton"
+s:Sc/DoseAtPhantom2/Quantity                  = "DoseToMedium"
+s:Sc/DoseAtPhantom2/Component 		= "Phantom2"
+s:Sc/DoseAtPhantom2/OutputFile           	= "sobpwedge"
+s:Sc/DoseAtPhantom2/IfOutputFileAlreadyExists = "Increment"
+
+b:Ge/Blocker1/Invisible = "True"
+b:Ge/Blocker2/Invisible = "True"
+#i:Gr/ViewA/MagneticFieldArrowDensity = 10
+Ts/UseQt = "True"
+s:Gr/ViewA/Type              = "OpenGL"
+i:Gr/ViewA/WindowSizeX       = 1920
+i:Gr/ViewA/WindowSizeY       = 1080
+d:Gr/ViewA/Theta             = 90 deg
+d:Gr/ViewA/Phi               = 0 deg
+s:Gr/ViewA/Projection        = "Perspective"
+d:Gr/ViewA/PerspectiveAngle  = 0 deg
+u:Gr/ViewA/Zoom              = 5.
+b:Gr/ViewA/IncludeStepPoints = "True"
+s:Gr/ViewA/CenterOn	      = "Blocker1"
+
+sv:Ph/Default/Modules = 3 "g4em-standard_opt3" "g4h-elastic" "g4h-inelastic_QBBC"
+#sv:Ph/Default/Modules = 6 "g4em-standard_opt4" "g4h-elastic_HP" "g4h-phy_QGSP_BIC_HP" "g4decay"  "g4stopping" "g4ion-binarycascade" 
+b:Ts/PauseBeforeQuit = "True"
